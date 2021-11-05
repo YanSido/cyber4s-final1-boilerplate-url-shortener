@@ -4,30 +4,33 @@
   <head>
     <title>URL Shortener</title>
     <link rel="icon" type="image/png" href="../public/favicon.ico" />
-    <link href="./public/style.css" rel="stylesheet" type="text/css" />
+    <link href="../public/style.css" rel="stylesheet" type="text/css" />
+    <script src="../public/front.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
     <h1>URL Shortener Microservice</h1>
     <main>
+      <input type="text" placeholder="Enter Username" id="username-input" />
       <section>
-        <form action="api/shorturl/new" method="POST">
-          <fieldset>
-            <legend>URL Shortener</legend>
-            <label for="url_input">URL:</label>
-            <input
-              id="url_input"
-              type="text"
-              name="url"
-              placeholder="https://www.freecodecamp.org/"
-            />
-            <input type="submit" value="POST URL" />
-          </fieldset>
-        </form>
+        <fieldset>
+          <legend>URL Shortener</legend>
+          <label for="url_input">URL:</label>
+          <input
+            id="url_input"
+            type="text"
+            name="url"
+            placeholder="https://www.example.co.il/"
+          />
+          <input type="submit" id="short-btn" value="SHORT URL" />
+          <button type="submit" id="view-details">View details</button>
+        </fieldset>
       </section>
+      <section id="details-section"></section>
     </main>
     <footer>
-      <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p>
+      <p>By <a href="https://www.github.com/YanSido">YanSido</a></p>
     </footer>
   </body>
 </html>
