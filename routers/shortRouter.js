@@ -15,7 +15,7 @@ function getRandomNumber() {
 shortRouter.post("/api/shorturl/new", (req, res) => {
   // Handle short url post request
   let newPath = getRandomNumber();
-  console.log(req.body.url, `=`, `${homeUrl}/api/shorturl/new/${newPath}`);
+  console.log(req.body.url, `=`, `${homeUrl}/${newPath}`);
   res.send(req.body.url);
 });
 
