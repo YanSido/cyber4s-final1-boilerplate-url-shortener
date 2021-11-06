@@ -27,27 +27,42 @@ const shortUrl = async (url) => {
       headers: headers,
       data: { url: url },
     });
+
+    if (response.data === "already has this URL shorted") {
+      addValidationMessage("You already shorted this URL");
+    }
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
 
-// Event listeners
-document.getElementById("short-btn").addEventListener("click", () => {
+function addValidationMessage(message) {
+  // Adds validation message
+  document.getElementById("url_input").style.borderColor = "red";
+  let validationMessage = document.createElement("p");
+  validationMessage.innerText = message;
+  validationMessage.setAttribute("id", "validationMessage");
+  validationMessage.style.color = "red";
+  document
+    .getElementById("url_input")
+    .parentNode.appendChild(validationMessage);
+}
+
+function removeValidationMessage() {
+  // Removes validation message
   if (document.getElementById("validationMessage")) {
     document.getElementById("validationMessage").remove();
     document.getElementById("url_input").style.borderColor = "black";
   }
+}
+
+// Event listeners
+document.getElementById("short-btn").addEventListener("click", () => {
+  removeValidationMessage();
   if (checkUrl(document.getElementById("url_input").value)) {
     shortUrl(document.getElementById("url_input").value);
   } else {
-    document.getElementById("url_input").style.borderColor = "red";
-    let validationMessage = document.createElement("p");
-    validationMessage.innerText = "Invalid URL";
-    validationMessage.setAttribute("id", "validationMessage");
-    validationMessage.style.color = "red";
-    document
-      .getElementById("url_input")
-      .parentNode.appendChild(validationMessage);
+    addValidationMessage("Invalid URL");
   }
 });
