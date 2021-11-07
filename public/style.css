@@ -1,11 +1,8 @@
-@import "https://raw.githubusercontent.com/jonathantneal/system-font-css/gh-pages/system-font.css";
 body {
-  font: normal 32px/1.6 system-ui, sans-serif;
-  text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+  font-family: Arial, sans-serif;
   font-size: 16px;
-  color: rgb(255, 255, 255);
-  background: dodgerblue linear-gradient(45deg, aqua, dodgerblue, deeppink)
-    fixed;
+  color: #222;
+  background-color: #fff;
   text-align: center;
   line-height: 1.4em;
 }
@@ -37,89 +34,11 @@ label {
   margin-right: 10px;
 }
 
-#short-btn {
-  background-color: initial;
-  background-image: linear-gradient(-180deg, #00d9ff, #cf1e94);
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
-    sans-serif;
-  line-height: 44px;
-  outline: 0;
-  overflow: hidden;
+input {
   padding: 5px;
-  pointer-events: auto;
-  text-align: center;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: top;
-  white-space: nowrap;
-  z-index: 9;
-  width: 100%;
-  border: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#short-btn:hover {
-  background: #07668b;
-}
-
-#view-details {
-  background-color: initial;
-  background-image: linear-gradient(-180deg, #acacac, #3f3f3f);
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
-    sans-serif;
-  line-height: 44px;
-  outline: 0;
-  overflow: hidden;
-  padding: 5px;
-  pointer-events: auto;
-  text-align: center;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: top;
-  white-space: nowrap;
-  z-index: 9;
-  width: 50%;
-  border: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#view-details:hover {
-  background: #5a5d5e;
 }
 
 input[type="text"] {
   width: 220px;
   text-align: center;
-  border: 2px solid #000;
-  outline: none;
-  background: none;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 1.2em;
-}
-
-::placeholder {
-  color: white;
-  opacity: 0.7;
-}
-
-footer {
-  clear: both;
-  position: relative;
-  height: 200px;
-  margin-top: 250px;
 }
