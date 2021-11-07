@@ -34,6 +34,8 @@ const shortUrl = async (url) => {
       addValidationMessage("You already shorted this URL");
     } else {
       let shortedUrl = response.data;
+      alert(shortedUrl);
+      alert(shortedUrl.split("/"));
       shortedUrl = shortedUrl.split("/")[shortedUrl.length - 1];
       addNewShortUrl(shortedUrl);
     }
