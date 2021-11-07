@@ -54,7 +54,6 @@ const urlInfo = async (shortUrl) => {
       url: `${homeUrl}/api/statistic/${shortUrl}`,
       headers: headers,
     });
-    alert(response.data);
     addUrlInfo(response.data);
   } catch (error) {
     throw error;
@@ -106,7 +105,9 @@ function addUrlInfo(data) {
   let urlClickedEl = document.createElement("p");
   let dateCreatedEl = document.createElement("p");
   urlEl.innerText = `URL: ${Object.keys(data)[0]}`;
-  newUrlEl.innerText = `Shorted URL: ${data[Object.keys(data)[0]].newUrl}`;
+  newUrlEl.innerText = `Shorted URL: ${
+    data[Object.keys(data)[0]].newUrl.split("/")[-1]
+  }`;
   urlClickedEl.innerText = `Shorted URL Clicked: ${
     data[Object.keys(data)[0]].urlClicked
   }`;
