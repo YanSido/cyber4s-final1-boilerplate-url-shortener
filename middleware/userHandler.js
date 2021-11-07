@@ -14,17 +14,6 @@ function userHandler(req, res, next) {
       res.send("already has this URL shorted");
     } else next();
   } else next();
-  // let member = { username: {} };
-  // json[username] = {};
-  // console.log(json);
-
-  // fs.writeFile(`${mainPath}/db.json`, jsonString, err=>{
-  //   if (err){
-  //     console.log('Error writing file', err)
-  //   }else {
-  //     console.log('Successfully wrote file')
-  // }
-  // })
 }
 
 module.exports = userHandler;
