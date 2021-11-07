@@ -3,9 +3,8 @@ const shortRouter = express.Router();
 const fs = require("fs");
 const path = require("path");
 const homeUrl = "http://localhost:3000";
-const mainPath =
-  "C:/Cyber4s/urlShortner/cyber4s-final1-boilerplate-url-shortener";
-let json = require(`${mainPath}/db.json`);
+const mainPath = __dirname.split("routers")[0];
+let json = require(`${mainPath}db.json`);
 
 function getKeyByValue(object, value) {
   return Object.keys(object).find((key) => object[key] === value);
@@ -20,7 +19,7 @@ function getRandomNumber() {
 }
 
 function updateDataBase(json) {
-  fs.writeFile(`${mainPath}/db.json`, JSON.stringify(json), (err) => {
+  fs.writeFile(`${mainPath}db.json`, JSON.stringify(json), (err) => {
     if (err) {
       res.send(err);
     }

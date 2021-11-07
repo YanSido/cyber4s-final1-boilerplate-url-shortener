@@ -1,8 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const mainPath =
-  "C:/Cyber4s/urlShortner/cyber4s-final1-boilerplate-url-shortener";
-let json = require(`${mainPath}/db.json`);
+const mainPath = __dirname.split("middleware")[0];
+let json = require(`${mainPath}db.json`);
 
 function userHandler(req, res, next) {
   // Checks if the url provided exists in the username.
