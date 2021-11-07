@@ -32,8 +32,7 @@ const shortUrl = async (url) => {
 
     if (response.data === "already has this URL shorted") {
       addValidationMessage("You already shorted this URL");
-    }
-    if (response.data.includes(homeUrl)) {
+    } else {
       addNewShortUrl(response.data);
     }
   } catch (error) {
@@ -55,6 +54,7 @@ const urlInfo = async (shortUrl) => {
       url: `${homeUrl}/api/statistic/${shortUrl}`,
       headers: headers,
     });
+    alert(response.data);
     addUrlInfo(response.data);
   } catch (error) {
     throw error;
