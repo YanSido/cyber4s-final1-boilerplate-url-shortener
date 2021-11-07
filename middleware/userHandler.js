@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const mainPath = __dirname.split("middleware")[0];
-let json = require(`${mainPath}db.json`);
+let json = require(`${mainPath}\\public\\db.json`);
 
 function userHandler(req, res, next) {
   // Checks if the url provided exists in the username.

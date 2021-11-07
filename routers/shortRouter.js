@@ -2,9 +2,9 @@ const express = require("express");
 const shortRouter = express.Router();
 const fs = require("fs");
 const path = require("path");
-const homeUrl = "http://localhost:3000";
+const homeUrl = "https://cryptic-bastion-17430.herokuapp.com";
 const mainPath = __dirname.split("routers")[0];
-let json = require(`${mainPath}db.json`);
+let json = require(`${mainPath}\\public\\db.json`);
 
 function getKeyByValue(object, value) {
   return Object.keys(object).find((key) => object[key] === value);
@@ -19,7 +19,7 @@ function getRandomNumber() {
 }
 
 function updateDataBase(json) {
-  fs.writeFile(`${mainPath}db.json`, JSON.stringify(json), (err) => {
+  fs.writeFile(`${mainPath}\\public\\db.json`, JSON.stringify(json), (err) => {
     if (err) {
       res.send(err);
     }
