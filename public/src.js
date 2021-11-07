@@ -36,7 +36,7 @@ const shortUrl = async (url) => {
       let shortedUrl = response.data;
       shortedUrl = shortedUrl.split("/");
       shortedUrl = shortedUrl.pop();
-      addNewShortUrl(shortedUrl);
+      addNewShortUrl(`${homeUrl}/shortedUrl`);
     }
   } catch (error) {
     throw error;
@@ -86,7 +86,7 @@ function removeValidationMessage() {
 function addNewShortUrl(url) {
   document.getElementById("url_input").style.borderColor = "black";
   let NewShortUrl = document.createElement("p");
-  NewShortUrl.innerText = url;
+  NewShortUrl.innerText = `New URL: ${url}`;
   NewShortUrl.setAttribute("id", "NewShortUrl");
   NewShortUrl.style.color = "black";
   document.getElementById("url_input").parentNode.appendChild(NewShortUrl);
