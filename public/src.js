@@ -36,7 +36,7 @@ const shortUrl = async (url) => {
       let shortedUrl = response.data;
       shortedUrl = shortedUrl.split("/");
       shortedUrl = shortedUrl.pop();
-      addNewShortUrl(`${homeUrl}/shortedUrl`);
+      addNewShortUrl(`${homeUrl}/${shortedUrl}`);
     }
   } catch (error) {
     throw error;
