@@ -1,4 +1,4 @@
-const homeUrl = "http://localhost:3000";
+const homeUrl = "https://cryptic-bastion-17430.herokuapp.com";
 
 function checkUrl(url) {
   // Checks if url is valid
@@ -25,7 +25,7 @@ const shortUrl = async (url) => {
     };
     response = await axios({
       method: "post",
-      url: `http://localhost:3000/api/shorturl/new`,
+      url: `${homeUrl}/api/shorturl/new`,
       headers: headers,
       data: { url: url },
     });
@@ -52,7 +52,7 @@ const urlInfo = async (shortUrl) => {
     };
     response = await axios({
       method: "get",
-      url: `http://localhost:3000/api/statistic/${shortUrl}`,
+      url: `${homeUrl}/api/statistic/${shortUrl}`,
       headers: headers,
     });
     addUrlInfo(response.data);
