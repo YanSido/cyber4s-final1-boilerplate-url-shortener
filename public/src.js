@@ -34,9 +34,8 @@ const shortUrl = async (url) => {
       addValidationMessage("You already shorted this URL");
     } else {
       let shortedUrl = response.data;
-      alert(shortedUrl);
-      alert(shortedUrl.split("/"));
-      shortedUrl = shortedUrl.split("/")[shortedUrl.length - 1];
+      shortedUrl = shortedUrl.split("/");
+      shortedUrl = shortedUrl.pop();
       addNewShortUrl(shortedUrl);
     }
   } catch (error) {
@@ -109,11 +108,10 @@ function addUrlInfo(data) {
   let urlClickedEl = document.createElement("p");
   let dateCreatedEl = document.createElement("p");
   let shortedUrl = data[Object.keys(data)[0]].newUrl;
-  shortedUrl = shortedUrl.split("/")[shortedUrl.length - 1];
+  shortedUrl = shortedUrl.split("/");
+  shortedUrl = shortedUrl.pop();
   urlEl.innerText = `URL: ${Object.keys(data)[0]}`;
-  newUrlEl.innerText = `Shorted URL: ${
-    data[Object.keys(data)[0]].newUrl.split("/")[-1]
-  }`;
+  newUrlEl.innerText = `Shorted URL: ${shortedUrl}`;
   urlClickedEl.innerText = `Shorted URL Clicked: ${
     data[Object.keys(data)[0]].urlClicked
   }`;
