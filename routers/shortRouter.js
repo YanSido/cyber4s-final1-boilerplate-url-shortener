@@ -13,8 +13,7 @@ function getKeyByValue(object, value) {
 function getRandomNumber() {
   // Returns random numbers and letters in length of 8
   let random_string =
-    Math.random().toString(32).substring(2, 6) +
-    Math.random().toString(32).substring(2, 6);
+    Math.random().toString(32).substring(2, 6) + Math.random().toString(32).substring(2, 6);
   return random_string;
 }
 
@@ -79,11 +78,13 @@ shortRouter.get("/:newUrl", (req, res) => {
 });
 
 shortRouter.get("/api/statistic/:shorturl", (req, res) => {
+  console.log("HII");
   const username = req.headers.username;
   let usernameData = json[username];
   if (!usernameData) throw Error("NO SUCH USERNAME");
   let keys = [];
   keys = Object.keys(usernameData);
+  console.log(keys);
 
   let data = {};
   let shortUrl = "";

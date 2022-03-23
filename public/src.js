@@ -57,6 +57,7 @@ const urlInfo = async (shortUrl) => {
       url: `${homeUrl}/api/statistic/${shortUrl}`,
       headers: headers,
     });
+    console.log(response.data);
     addUrlInfo(response.data);
   } catch (error) {
     throw error;
@@ -70,9 +71,7 @@ function addValidationMessage(message) {
   validationMessage.innerText = message;
   validationMessage.setAttribute("id", "validationMessage");
   validationMessage.style.color = "red";
-  document
-    .getElementById("url_input")
-    .parentNode.appendChild(validationMessage);
+  document.getElementById("url_input").parentNode.appendChild(validationMessage);
 }
 
 function removeValidationMessage() {
@@ -86,7 +85,7 @@ function removeValidationMessage() {
 function addNewShortUrl(url) {
   document.getElementById("url_input").style.borderColor = "black";
   let NewShortUrl = document.createElement("p");
-  NewShortUrl.innerText = `New URL: ${url}`;
+  NewShortUrl.innerText = `New URL: ${url} \n Shorted URL for details: ${url.split("/").pop()}`;
   NewShortUrl.setAttribute("id", "NewShortUrl");
   NewShortUrl.style.color = "black";
   document.getElementById("url_input").parentNode.appendChild(NewShortUrl);
@@ -111,13 +110,9 @@ function addUrlInfo(data) {
   shortedUrl = shortedUrl.split("/");
   shortedUrl = shortedUrl.pop();
   urlEl.innerText = `URL: ${Object.keys(data)[0]}`;
-  newUrlEl.innerText = `Shorted URL: ${shortedUrl}`;
-  urlClickedEl.innerText = `Shorted URL Clicked: ${
-    data[Object.keys(data)[0]].urlClicked
-  }`;
-  dateCreatedEl.innerText = `Date Created: ${
-    data[Object.keys(data)[0]].dateCreated
-  }`;
+  newUrlEl.innerText = `Shorted URL: ${shortedUrl} \n New URL: ${homeUrl}/${shortedUrl}`;
+  urlClickedEl.innerText = `Shorted URL Clicked: ${data[Object.keys(data)[0]].urlClicked}`;
+  dateCreatedEl.innerText = `Date Created: ${data[Object.keys(data)[0]].dateCreated}`;
   urlInfo.appendChild(urlEl);
   urlInfo.appendChild(newUrlEl);
   urlInfo.appendChild(urlClickedEl);
