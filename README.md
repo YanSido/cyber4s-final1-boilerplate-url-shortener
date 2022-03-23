@@ -1,6 +1,6 @@
 # Welcome to Sido's URL Shortner
 
-![Example](./example.png)
+
 
 ## Table of contents
 * [General info](#general-info)
